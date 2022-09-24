@@ -91,7 +91,7 @@
   font-size: 1rem;
   font-weight: 500;
   padding: 10px;
-  background-color: var(--light-blue);
+  background-color: var(--secondary);
 }
 
 .submit-btn:hover {

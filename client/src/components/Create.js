@@ -1,11 +1,29 @@
-// import { useState } from "react";
-// import axios from 'axios';
-// import {BaseURL} from '../API/API';
+import { useState } from "react";
+import axios from 'axios';
+import { baseURL } from '../API/API';
 import '../App.css'
 
 
 
 const Create = () =>{
+    const [newUser , setNewUser] = useState({firstname: "", lastname: "" , mail:""});
+
+    const handleChange = (event) =>{
+        setNewUser((prev)=>({
+            ...prev,
+            [event.target.name]: event.target.value
+        }));
+    };
+// submit function
+    const handleSubmit =  async (e) =>{
+       e.preventDefault();
+       try {
+        await axios.post(baseURL, newUser);
+       } catch (e) {
+        console.log(e)
+       }
+
+    };
 
 
 return (
@@ -13,7 +31,7 @@ return (
       <h1 className="form-heading">Create User</h1>
 
       <div className="form-container">
-        <form >
+        <form  onSubmit={handleSubmit} >
           <div className="form-control">
             <label htmlFor="firstname" />
             <input
@@ -22,7 +40,8 @@ return (
               id="firstname"
               name="firstname"
               placeholder="firstname"
-            //   onChange={handleChange}
+              value={newUser.firstname}
+              onChange={handleChange}
               required
             ></input>
           </div>
@@ -33,9 +52,9 @@ return (
               type="text"
               id="lastname"
               name="lastname"
-           
+              value={newUser.lastname}
               placeholder="lastname"
-            //   onChange={handleChange}
+              onChange={handleChange}
               required
             ></input>
           </div>
@@ -47,9 +66,9 @@ return (
               type="text"
               id="mail"
               name="mail"
-            
+              value={newUser.mail}
               placeholder="mail"
-            //   onChange={handleChange}
+              onChange={handleChange}
               required
             ></input>
           </div>
