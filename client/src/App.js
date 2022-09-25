@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css'
 import Navbar from './components/Navbar';
-import Create from './components/Create';
-
+// import Create from './components/Create';
+import Read from './components/Read';
 
 function  App (){
   return (
@@ -10,7 +10,8 @@ function  App (){
     <Navbar />
      
 
-     <Create />
+     <Read />
+     {/* <Create /> */}
     </div>
   );
 }
