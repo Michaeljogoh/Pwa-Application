@@ -1,15 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { baseURL } from "../api/api";
 
-const Create = () => {
+const Update = () => {
   const [newUser, setNewUser] = useState({
     firstname: "",
     lastname: "",
     mail: "",
   });
   let navigate = useNavigate();
+  let { id } = useParams();
+  console.log(id);
 
   const handleChange = (event) => {
     setNewUser((prev) => ({
@@ -22,7 +24,7 @@ const Create = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(baseURL, newUser);
+      await axios.put(`${baseURL}${id}`);
       navigate("/", { replace: true });
     } catch (e) {
       console.log(e);
@@ -31,7 +33,7 @@ const Create = () => {
 
   return (
     <div className="form-section">
-      <h1 className="form-heading">Create User</h1>
+      <h1 className="form-heading">Update User</h1>
 
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -77,7 +79,7 @@ const Create = () => {
           </div>
           <div className="form-submit-container">
             <button className="submit-btn" required>
-              Submit
+              Update
             </button>
           </div>
         </form>
@@ -86,4 +88,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default Update;
