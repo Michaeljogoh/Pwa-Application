@@ -26,6 +26,11 @@ const Read = () => {
 
   const deleteUser = async (id) => {
     await axios.delete(`${baseURL}${id}`);
+    const newUserList = user.filter((users)=>{
+      return users.id !== id;
+    }) 
+
+    setUser(newUserList)
   };
 
   return (
