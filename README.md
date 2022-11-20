@@ -9,7 +9,7 @@ https://pwa-application-theta.vercel.app/
 
 ### Heroku link 
 ```
-
+https://pwa-application987.herokuapp.com/
 ```
 
 ## Technologies Used
@@ -18,4 +18,28 @@ https://pwa-application-theta.vercel.app/
 - server ExpressJS 
 - Database AWS MySQL RDMS
 - Sequelize ORM
+
+# Clone
+Clone this repository to your local machine
+
+$ git clone https://github.com/Michaeljogoh/Pwa-Application/
+
+**1. Enter the project folder**
+
+```
+$ cd url-shortener
+```
+
+**2. Install npm packages**
+
+```
+$ npm install
+```
+
+**3. Activate the server**
+
+```
+$ npm run dev
+```
+
 
